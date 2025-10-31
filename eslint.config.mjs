@@ -85,5 +85,24 @@ export default [
       "@typescript-eslint/no-unused-expressions": "off"
     }
   },
+  {
+    files: ["scripts/**/*.{ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      parser: eslintParserTypeScript,
+      parserOptions: {
+        project: "./scripts/tsconfig.json"
+      }
+    },
+    settings: {
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+          project: "./scripts/tsconfig.json"
+        }
+      }
+    }
+  },
   eslintConfigPrettier
 ]
