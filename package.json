@@ -9,7 +9,8 @@
     "codegen": "mimic codegen",
     "compile": "mimic compile",
     "test": "mimic test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "upload": "tsx scripts/upload-tasks.ts"
   },
   "devDependencies": {
     "@mimicprotocol/cli": "^0.0.1-rc.0",

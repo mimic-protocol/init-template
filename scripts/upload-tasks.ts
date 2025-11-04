@@ -5,25 +5,25 @@ import { config } from 'dotenv'
 config({ path: './scripts/.env' })
 
 // TODO: Replace with your deployed task's CID
-const TASK_CID = 'YOUR_TASK_CID_HERE'
+const TASK_TEMPLATE_CID = 'YOUR_TASK_TEMPLATE_CID_HERE'
 
 // TODO: Customize configs array to match your task's input structure
-// Each config will be used to create a task configuration
+// Each config will be used to create a task
 // This template uses the example task's inputs: chainId, token, amount, recipient, maxFee
 const configs = [
   {
     chainId: Chains.Optimism,
-    token: '0x7f5c764cb14f9669b88837ca1490cca17c31607', // Example: USDC on Optimism
-    amount: '1000000', // Example: 1 USDC (6 decimals)
-    recipient: '0xbce3248ede29116e4bd18416dcc2dfca668eeb84', // Example recipient address
-    maxFee: '100000', // Example: 0.1 USDC
+    token: '0x0b2c639c533813f4aa9d7837caf62653d097ff85', // USDC on Optimism
+    amount: '1000000', // 1 USDC (6 decimals)
+    recipient: '0x...', // TODO: Replace with your recipient address
+    maxFee: '100000', // 0.1 USDC
   },
   {
-    chainId: Chains.Sonic,
-    token: '0x...', // Example token address on Sonic
-    amount: '1000000', // Example amount
-    recipient: '0x...', // Example recipient address
-    maxFee: '100000', // Example max fee
+    chainId: Chains.Base,
+    token: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913', // USDC on Base
+    amount: '1000000', // 1 USDC (6 decimals)
+    recipient: '0x...', // TODO: Replace with your recipient address
+    maxFee: '100000', // 0.1 USDC
   },
   // Add more configs as needed
 ]
@@ -34,7 +34,7 @@ async function main(): Promise<void> {
   })
 
   // Get the manifest for the task
-  const manifest = await client.tasks.getManifest(TASK_CID)
+  const manifest = await client.tasks.getManifest(TASK_TEMPLATE_CID)
 
   // TODO: Adjust the scheduling logic based on your needs
   // This example schedules configs at 2-minute intervals starting at minute 0
@@ -50,7 +50,7 @@ async function main(): Promise<void> {
     // - signer: Address of the signer (from environment variable)
 
     await client.configs.signAndCreate({
-      taskCid: TASK_CID,
+      taskCid: TASK_TEMPLATE_CID,
       version: '1.0.0', // TODO: Update to match your task version
       description: `Transfer - ${config.chainId} - ${config.token.substring(0, 6)}...`,
       input: {
@@ -69,9 +69,9 @@ async function main(): Promise<void> {
         endDate: 0, // 0 means no end date
       },
       manifest: manifest,
-      signer: process.env.SIGNER!, // TODO: Ensure SIGNER is set in .env
-      executionFeeLimit: '0', // TODO: Set fee limit if needed
-      minValidations: 1, // TODO: Adjust validation requirements
+      signer: process.env.SIGNER!,
+      executionFeeLimit: '0',
+      minValidations: 1,
     })
 
     // Increment minute for next config to avoid scheduling conflicts
