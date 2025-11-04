@@ -5,21 +5,24 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "yarn codegen && yarn compile",
+    "build": "mimic build",
     "codegen": "mimic codegen",
     "compile": "mimic compile",
     "test": "mimic test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "upload": "tsx scripts/upload-tasks.ts"
   },
   "devDependencies": {
     "@mimicprotocol/cli": "^0.0.1-rc.0",
     "@mimicprotocol/lib-ts": "^0.0.1-rc.0",
+    "@mimicprotocol/sdk": "^0.0.1-rc.0",
     "@mimicprotocol/test-ts": "^0.0.1-rc.0",
     "@types/chai": "^5.2.2",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.5",
     "assemblyscript": "0.27.36",
     "chai": "^4.3.7",
+    "dotenv": "^17.2.3",
     "eslint": "^9.10.0",
     "json-as": "1.1.7",
     "mocha": "^10.2.0",
