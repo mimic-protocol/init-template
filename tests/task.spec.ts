@@ -1,5 +1,5 @@
 import { Chains, fp, OpType } from '@mimicprotocol/sdk'
-import { ContractCallMock, runTask, Transfer } from '@mimicprotocol/test-ts'
+import { EvmCallQueryMock, runTask, Transfer } from '@mimicprotocol/test-ts'
 import { expect } from 'chai'
 
 describe('Task', () => {
@@ -21,7 +21,7 @@ describe('Task', () => {
     maxFee: '0.1', // 0.1 USDC
   }
 
-  const calls: ContractCallMock[] = [
+  const calls: EvmCallQueryMock[] = [
     {
       request: { to: inputs.token, chainId, fnSelector: '0x313ce567' }, // decimals
       response: { value: '6', abiType: 'uint8' },
