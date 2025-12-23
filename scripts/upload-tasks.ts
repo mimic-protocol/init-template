@@ -14,16 +14,16 @@ const configs = [
   {
     chainId: Chains.Optimism,
     token: '0x0b2c639c533813f4aa9d7837caf62653d097ff85', // USDC on Optimism
-    amount: '1000000', // 1 USDC (6 decimals)
+    amount: '1',
     recipient: '0x...', // TODO: Replace with your recipient address
-    maxFee: '100000', // 0.1 USDC
+    maxFee: '0.1',
   },
   {
     chainId: Chains.Base,
     token: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913', // USDC on Base
-    amount: '1000000', // 1 USDC (6 decimals)
+    amount: '1',
     recipient: '0x...', // TODO: Replace with your recipient address
-    maxFee: '100000', // 0.1 USDC
+    maxFee: '0.1',
   },
   // Add more configs as needed
 ]
