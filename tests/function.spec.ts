@@ -1,9 +1,9 @@
 import { Chains, fp, OpType } from '@mimicprotocol/sdk'
-import { EvmCallQueryMock, runTask, Transfer } from '@mimicprotocol/test-ts'
+import { EvmCallQueryMock, runFunction, Transfer } from '@mimicprotocol/test-ts'
 import { expect } from 'chai'
 
-describe('Task', () => {
-  const taskDir = './build'
+describe('Function', () => {
+  const functionDir = './build'
 
   const chainId = Chains.Optimism
 
@@ -29,7 +29,7 @@ describe('Task', () => {
   ]
 
   it('produces the expected intents', async () => {
-    const result = await runTask(taskDir, context, { inputs, calls })
+    const result = await runFunction(functionDir, context, { inputs, calls })
     expect(result.success).to.be.true
     expect(result.timestamp).to.be.equal(context.timestamp)
 
