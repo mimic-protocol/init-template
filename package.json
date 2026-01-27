@@ -10,7 +10,7 @@
     "compile": "mimic compile",
     "test": "mimic test",
     "lint": "eslint .",
-    "upload": "tsx scripts/upload-function.ts"
+    "trigger": "tsx scripts/create-trigger.ts"
   },
   "devDependencies": {
     "@mimicprotocol/cli": "^0.0.1-rc.0",
