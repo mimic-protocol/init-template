@@ -1,4 +1,4 @@
-import { Chains, Client, EthersSigner, ConfigType } from '@mimicprotocol/sdk'
+import { Chains, Client, EthersSigner, TriggerType } from '@mimicprotocol/sdk'
 import { config } from 'dotenv'
 
 // Load environment variables from .env file
@@ -61,7 +61,7 @@ async function main(): Promise<void> {
         maxFee: trigger.maxFee,
       },
       config: {
-        type: ConfigType.Cron,
+        type: TriggerType.Cron,
         // Schedule: runs at minute X of hour 3 (03:XX) every day
         // TODO: Adjust schedule based on your needs
         schedule: `${minute} 03 * * *`,
