@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "deploy": "mimic deploy",
     "build": "mimic build",
     "codegen": "mimic codegen",
     "compile": "mimic compile",
