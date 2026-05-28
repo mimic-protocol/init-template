@@ -41,7 +41,7 @@ describe('Function', () => {
     expect(intent.maxFees).to.have.lengthOf(1)
     expect(intent.maxFees[0].token).to.be.equal(inputs.token)
     expect(intent.maxFees[0].amount).to.be.equal(fp(inputs.maxFee, 6).toString())
-    
+
     expect(intent.operations).to.have.lengthOf(1)
     const operation = intent.operations[0] as TransferOperation
 
